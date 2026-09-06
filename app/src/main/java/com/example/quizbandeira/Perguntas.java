@@ -2,10 +2,10 @@ package com.example.quizbandeira;
 
 public class Perguntas {
 
-    public static Pergunta[] obterPerguntas() {
-        return new Pergunta[] {
+    public static Estrutura_pergunta[] obterPerguntas() {
+        return new Estrutura_pergunta[] {
                 // Pergunta 1 - ALBÂNIA
-                new Pergunta(
+                new Estrutura_pergunta(
                         R.drawable.albania,
                         "Montenegro",
                         "Albânia",
@@ -15,7 +15,7 @@ public class Perguntas {
                 ),
 
                 // Pergunta 2 - Brasil
-                new Pergunta(
+                new Estrutura_pergunta(
                         R.drawable.brasil,
                         "Brasil",
                         "Argentina",
@@ -25,7 +25,7 @@ public class Perguntas {
                 ),
 
                 // Pergunta 3 - Colombia
-                new Pergunta(
+                new Estrutura_pergunta(
                         R.drawable.colombia,
                         "Venezuela",
                         "Equador",
@@ -35,7 +35,7 @@ public class Perguntas {
                 ),
 
                 // Pergunta 4 - Djibuti
-                new Pergunta(
+                new Estrutura_pergunta(
                         R.drawable.djibuti,
                         "Djibuti",
                         "Somália",
@@ -45,7 +45,7 @@ public class Perguntas {
                 ),
 
                 // Pergunta 5 - Egito
-                new Pergunta(
+                new Estrutura_pergunta(
                         R.drawable.egito,
                         "Egito",
                         "Iraque",
@@ -55,7 +55,7 @@ public class Perguntas {
                 ),
 
                 // Pergunta 6 - Finlândia
-                new Pergunta(
+                new Estrutura_pergunta(
                         R.drawable.finlandia,
                         "Suécia",
                         "Noruega",
@@ -65,7 +65,7 @@ public class Perguntas {
                 ),
 
                 // Pergunta 7 - Georgia
-                new Pergunta(
+                new Estrutura_pergunta(
                         R.drawable.georgia,
                         "Geórgia",
                         "Inglaterra",
@@ -75,7 +75,7 @@ public class Perguntas {
                 ),
 
                 // Pergunta 8 - Haiti
-                new Pergunta(
+                new Estrutura_pergunta(
                         R.drawable.haiti,
                         "Haiti",
                         "República Dominicana",
@@ -85,7 +85,7 @@ public class Perguntas {
                 ),
 
                 // Pergunta 9 - Índia
-                new Pergunta(
+                new Estrutura_pergunta(
                         R.drawable.india,
                         "Índia",
                         "Paquistão",
@@ -95,7 +95,7 @@ public class Perguntas {
                 ),
 
                 // Pergunta 10 - Japão
-                new Pergunta(
+                new Estrutura_pergunta(
                         R.drawable.japao,
                         "China",
                         "Japão",

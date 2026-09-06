@@ -6,16 +6,16 @@ public class Estrutura_pergunta {
     private int bandeira;
 
     // Quatro alternativas de pergunta
-    private string alternativa1;
-    private string alternativa2;
-    private string alternativa3;
-    private string alternativa4;
+    private String alternativa1;
+    private String alternativa2;
+    private String alternativa3;
+    private String alternativa4;
 
     // Alternativa correta
     private String respostaCorreta;
 
     // Construtor da pergunta
-    public Pergunta(int bandeira,
+    public Estrutura_pergunta(int bandeira,
                     String alternativa1,
                     String alternativa2,
                     String alternativa3,
