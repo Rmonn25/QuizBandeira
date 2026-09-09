@@ -1,10 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F5F5F5"
     tools:context=".PerguntaActivity">
+
+    <!-- REQUISITO: Título "Que país é este?" -->
+    <TextView
+        android:id="@+id/tvTituloPergunta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:text="Que país é este?"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- REQUISITO: Imagem da bandeira -->
+    <!-- Usamos um CardView em volta da imagem para deixar com bordas arredondadas e sombra (Design) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardBandeira"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTituloPergunta">
+
+        <ImageView
+            android:id="@+id/ivBandeira"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- REQUISITO: 4 Alternativas -->
+    <!-- O RadioGroup é obrigatório para que apenas 1 alternativa seja selecionada por vez -->
+    <RadioGroup
+        android:id="@+id/rgAlternativas"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardBandeira">
+
+        <RadioButton
+            android:id="@+id/rbOpcao1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@android:color/white"
+            android:padding="12dp"
+            android:textSize="18sp"
+            tools:text="Alternativa 1" />
+
+        <RadioButton
+            android:id="@+id/rbOpcao2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@android:color/white"
+            android:padding="12dp"
+            android:textSize="18sp"
+            tools:text="Alternativa 2" />
+
+        <RadioButton
+            android:id="@+id/rbOpcao3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@android:color/white"
+            android:padding="12dp"
+            android:textSize="18sp"
+            tools:text="Alternativa 3" />
+
+        <RadioButton
+            android:id="@+id/rbOpcao4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@android:color/white"
+            android:padding="12dp"
+            android:textSize="18sp"
+            tools:text="Alternativa 4" />
+    </RadioGroup>
+
+    <!-- REQUISITO: Botão Responder -->
+    <Button
+        android:id="@+id/btnResponder"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:text="RESPONDER"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
