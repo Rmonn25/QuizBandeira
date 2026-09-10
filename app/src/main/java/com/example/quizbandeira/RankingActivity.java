@@ -1,5 +1,14 @@
 package com.example.quizbandeira;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TextView;
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 // ==========================================
 // RANKING ACTIVITY
 // ==========================================
@@ -23,15 +32,13 @@ package com.example.quizbandeira;
 // A pontuação será recebida da lógica do Quiz.
 // Não criar a lógica de pontuação nesta Activity.
 
-import android.os.Bundle;
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class RankingActivity extends AppCompatActivity {
+    private TextView tvNomeUsuario;
+    private TextView tvAcertos;
+    private Button btnResponderNovamente;
+    private Button btnTelaPrincipal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,4 +51,5 @@ public class RankingActivity extends AppCompatActivity {
             return insets;
         });
     }
+
 }
