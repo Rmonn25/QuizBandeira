@@ -1,10 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="#FFFFFF"
     tools:context=".PerguntaActivity">
+
+    <!-- Número da pergunta -->
+    <TextView
+        android:id="@+id/txtNumeroPergunta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pergunta 1 de 10"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#555555"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Que país é este?"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="#222222"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/txtNumeroPergunta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Bandeira -->
+    <ImageView
+        android:id="@+id/imgBandeira"
+        android:layout_width="0dp"
+        android:layout_height="220dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="Bandeira do país"
+        android:scaleType="fitCenter"
+        app:layout_constraintTop_toBottomOf="@id/txtTitulo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Alternativas -->
+    <RadioGroup
+        android:id="@+id/radioGroupAlternativas"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/imgBandeira"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <RadioButton
+            android:id="@+id/radioAlternativa1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Alternativa 1"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radioAlternativa2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Alternativa 2"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radioAlternativa3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Alternativa 3"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radioAlternativa4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Alternativa 4"
+            android:textSize="18sp" />
+
+    </RadioGroup>
+
+    <!-- Botão responder -->
+    <Button
+        android:id="@+id/btnResponder"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="RESPONDER"
+        android:textSize="17sp"
+        android:enabled="false"
+        app:layout_constraintTop_toBottomOf="@id/radioGroupAlternativas"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

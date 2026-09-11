@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="txtNumeroPergunta" type="id" />
+    <item name="txtTitulo" type="id" />
+    <item name="imgBandeira" type="id" />
+    <item name="radioGroupAlternativas" type="id" />
+    <item name="radioAlternativa1" type="id" />
+    <item name="radioAlternativa2" type="id" />
+    <item name="radioAlternativa3" type="id" />
+    <item name="radioAlternativa4" type="id" />
+    <item name="btnResponder" type="id" />
+</resources>
