@@ -66,6 +66,12 @@ public class PerguntaActivity extends AppCompatActivity {
     // Índice da pergunta atual
     private int perguntaAtual = 0;
 
+    // ==========================================
+    // VARIÁVEIS ADICIONADAS PARA PONTUAÇÃO E NOME
+    // ==========================================
+    private int pontuacao = 0;
+    private String nomeUsuario = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +101,13 @@ public class PerguntaActivity extends AppCompatActivity {
                 }
         );
 
+        // ==========================================
+        // RECEBER O NOME DA TELA INICIAL
+        // ==========================================
+        nomeUsuario = getIntent().getStringExtra("NOME_USUARIO");
+        if (nomeUsuario == null) {
+            nomeUsuario = "Jogador"; // Prevenção de erro
+        }
 
         // ==========================================
         // LOCALIZAR OS COMPONENTES
@@ -169,6 +182,7 @@ public class PerguntaActivity extends AppCompatActivity {
 
         btnResponder.setOnClickListener(v -> {
 
+            validarResposta(); // Adicionado: Checa se acertou antes de avançar
             proximaPergunta();
 
         });
@@ -242,6 +256,29 @@ public class PerguntaActivity extends AppCompatActivity {
 
 
     // ==========================================
+    // VALIDAR A RESPOSTA (NOVO MÉTODO)
+    // ==========================================
+
+    private void validarResposta() {
+        Estrutura_pergunta pergunta = perguntas[perguntaAtual];
+
+        // Descobre qual RadioButton foi selecionado
+        int idSelecionado = radioGroupAlternativas.getCheckedRadioButtonId();
+        RadioButton radioSelecionado = findViewById(idSelecionado);
+
+        if (radioSelecionado != null) {
+            // Pega o texto da alternativa que o usuário clicou
+            String respostaEscolhida = radioSelecionado.getText().toString();
+
+            // Compara com a resposta correta e adiciona ponto
+            if (respostaEscolhida.equals(pergunta.getRespostaCorreta())) {
+                pontuacao++;
+            }
+        }
+    }
+
+
+    // ==========================================
     // IR PARA A PRÓXIMA PERGUNTA
     // ==========================================
 
@@ -267,6 +304,10 @@ public class PerguntaActivity extends AppCompatActivity {
                             PerguntaActivity.this,
                             RankingActivity.class
                     );
+
+            // Adicionado: Envia os dados para a tela de Ranking
+            intent.putExtra("NOME_USUARIO", nomeUsuario);
+            intent.putExtra("PONTUACAO_FINAL", pontuacao);
 
             startActivity(intent);
 
