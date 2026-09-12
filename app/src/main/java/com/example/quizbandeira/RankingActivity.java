@@ -32,26 +32,12 @@ import androidx.core.view.WindowInsetsCompat;
 // A pontuação será recebida da lógica do Quiz.
 // Não criar a lógica de pontuação nesta Activity.
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.widget.Button;
-import android.widget.TextView;
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
 public class RankingActivity extends AppCompatActivity {
     private TextView tvNomeUsuario;
     private TextView tvAcertos;
     private Button btnResponderNovamente;
     private Button btnTelaPrincipal;
 
-    private TextView tvNomeUsuario;
-    private TextView tvAcertos;
-    private Button btnResponderNovamente;
-    private Button btnTelaPrincipal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +50,37 @@ public class RankingActivity extends AppCompatActivity {
             return insets;
         });
 
-    }
+        // Mapeamento dos componentes da tela
+        tvNomeUsuario = findViewById(R.id.tvNomeUsuario);
+        tvAcertos = findViewById(R.id.tvAcertos);
+        btnResponderNovamente = findViewById(R.id.btnResponderNovamente);
+        btnTelaPrincipal = findViewById(R.id.btnTelaPrincipal);
 
+        // Recebimento da pontuação e nome do usuário repassados via Intent
+        Intent intent = getIntent();
+        String nome = intent.getStringExtra("NOME_USUARIO");
+        int pontuacao = intent.getIntExtra("PONTUACAO", 0);
+
+        // Exibição dos dados na interface
+        if (nome != null) {
+            tvNomeUsuario.setText(nome);
+        }
+        tvAcertos.setText(String.valueOf(pontuacao));
+
+        // Ação do botão "RESPONDER NOVAMENTE": Direciona para a primeira pergunta do Quiz
+        btnResponderNovamente.setOnClickListener(v -> {
+            Intent intentQuiz = new Intent(RankingActivity.this, PerguntaActivity.class);
+            intentQuiz.putExtra("NOME_USUARIO", nome);
+            startActivity(intentQuiz);
+            finish();
+        });
+
+        // Ação do botão "TELA PRINCIPAL": Retorna para a tela inicial do aplicativo
+        btnTelaPrincipal.setOnClickListener(v -> {
+            Intent intentHome = new Intent(RankingActivity.this, MainActivity.class);
+            intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intentHome);
+            finish();
+        });
+    }
 }
