@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.graphics.Color;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -241,6 +242,12 @@ public class PerguntaActivity extends AppCompatActivity {
         radioAlternativa4.setText(
                 pergunta.getAlternativa4()
         );
+
+        // Deixa o texto das alternativas escuro
+        radioAlternativa1.setTextColor(Color.BLACK);
+        radioAlternativa2.setTextColor(Color.BLACK);
+        radioAlternativa3.setTextColor(Color.BLACK);
+        radioAlternativa4.setTextColor(Color.BLACK);
 
 
         // Limpa a seleção anterior

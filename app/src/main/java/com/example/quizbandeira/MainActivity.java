@@ -6,6 +6,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.Button;
 import android.widget.EditText;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +21,11 @@ public class MainActivity extends AppCompatActivity {
     private Button btnSair;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+protected void onCreate(Bundle savedInstanceState) {
+        AppCompatDelegate.setDefaultNightMode(
+                AppCompatDelegate.MODE_NIGHT_NO
+        );
+
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
@@ -36,32 +41,29 @@ public class MainActivity extends AppCompatActivity {
         btnIniciarQuiz = findViewById(R.id.btnIniciarQuiz);
         btnSair = findViewById(R.id.btnSair);
 
-        // Desabilita o botão ao abrir e deixa ele 50% transparente
+// Ao abrir a tela, o botão começa desabilitado
         btnIniciarQuiz.setEnabled(false);
-        btnIniciarQuiz.setAlpha(0.5f);
 
-        // Digitação no EditText do ususario
+// Verifica enquanto o usuário digita o nome
         txtNome.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                boolean temTexto = !s.toString().trim().isEmpty();
-
-                // Habilita ou desabilita o botão INICIAR
-                btnIniciarQuiz.setEnabled(temTexto);
-
-                // Efeito visual do botão INICIAR, 1.0f aceso e 0.5f apagado
-                if (temTexto) {
-                    btnIniciarQuiz.setAlpha(1.0f);
-                } else {
-                    btnIniciarQuiz.setAlpha(0.5f);
-                }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
 
             @Override
-            public void afterTextChanged(Editable s) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                // Verifica se existe algum texto no campo
+                boolean temTexto = !s.toString().trim().isEmpty();
+
+                // Habilita ou desabilita o botão
+                btnIniciarQuiz.setEnabled(temTexto);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
         });
 
         // Botão INICIAR QUIZ, leva para o PerguntaActivity

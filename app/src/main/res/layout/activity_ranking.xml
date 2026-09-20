@@ -51,22 +51,27 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:orientation="horizontal">
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="8dp">
 
             <Button
                 android:id="@+id/btnResponderNovamente"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_weight="1"
-                android:text="RESPONDER NOVAMENTE" />
+                android:text="RESPONDER\nNOVAMENTE"
+                android:textSize="16sp" />
 
             <Button
                 android:id="@+id/btnTelaPrincipal"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginStart="8dp"
                 android:layout_weight="1"
-                android:text="TELA PRINCIPAL" />
+                android:text="TELA PRINCIPAL"
+                android:textSize="16sp" />
+
         </LinearLayout>
     </LinearLayout>
 
